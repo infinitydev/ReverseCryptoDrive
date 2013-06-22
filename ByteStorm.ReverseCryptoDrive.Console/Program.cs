@@ -1,23 +1,5 @@
-﻿#region Copyright (c) 2011 Two10 degrees
-//
-// (C) Copyright 2011 Two10 degrees
-//      All rights reserved.
-//
-// This software is provided "as is" without warranty of any kind,
-// express or implied, including but not limited to warranties as to
-// quality and fitness for a particular purpose. Active Web Solutions Ltd
-// does not support the Software, nor does it warrant that the Software
-// will meet your requirements or that the operation of the Software will
-// be uninterrupted or error free or that any defects will be
-// corrected. Nothing in this statement is intended to limit or exclude
-// any liability for personal injury or death caused by the negligence of
-// Active Web Solutions Ltd, its employees, contractors or agents.
-//
-#endregion
-
-namespace ByteStorm.PassthroughDrive.Console
+﻿namespace ByteStorm.PassthroughDrive.Console
 {
-    using System.Configuration;
     using System.Diagnostics;
     using Dokan;
     using System;
@@ -46,7 +28,7 @@ namespace ByteStorm.PassthroughDrive.Console
             System.Console.WriteLine("Welcome to ByteStorm Crypto Drive");
             System.Console.ResetColor();
             DokanOptions opt = new DokanOptions();
-            opt.MountPoint = CryptoConfiguration.Instance.getSetting(CryptoConfiguration.KEY_DRIVELETTER, "R");//Properties.Settings.Default.DriveLetter;
+            opt.MountPoint = CryptoConfiguration.Instance.getSetting(CryptoConfiguration.KEY_DRIVELETTER, CryptoConfiguration.DEFAULT_DRIVELETTER);//Properties.Settings.Default.DriveLetter;
             opt.DebugMode = false;
             opt.UseStdErr = false;
             opt.VolumeLabel = CryptoConfiguration.Instance.getSetting(CryptoConfiguration.KEY_VOLUMELABEL, "ByteStormDrive");//Properties.Settings.Default.VolumeLabel;
@@ -211,56 +193,6 @@ namespace ByteStorm.PassthroughDrive.Console
             byte[] key = new byte[CryptoConstants.CIPHER_KEY_SIZE];
             rng.NextBytes(key);
             return key;
-        }
-    }
-
-    class CryptoConfiguration
-    {
-        public static readonly string KEY_KEY = "Key";
-        public static readonly string KEY_IV = "IV";
-        public static readonly string KEY_DRIVELETTER = "DriveLetter";
-        public static readonly string KEY_VOLUMELABEL = "VolumeLabel";
-        public static readonly string KEY_MOUNTPATH = "MountPath";
-
-        private Configuration config;
-
-        public static readonly string configPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ByteStorm", "CryptoDrive", "config.xml");
-        private static CryptoConfiguration defaultInstance = new CryptoConfiguration();
-
-        public static CryptoConfiguration Instance
-        {
-            get
-            {
-                return defaultInstance;
-            }
-        }
-
-        public CryptoConfiguration() {
-            ExeConfigurationFileMap configMap = new ExeConfigurationFileMap();
-            configMap.ExeConfigFilename = configPath;
-            config = ConfigurationManager.OpenMappedExeConfiguration(configMap, ConfigurationUserLevel.None);
-        }
-
-        public string getSetting(string key, string defaultValue)
-        {
-            KeyValueConfigurationElement elem = config.AppSettings.Settings[key];
-            if (elem == null || elem.Value == null)
-                return defaultValue;
-            return elem.Value;
-        }
-
-        public void setSetting(string key, string value)
-        {
-            KeyValueConfigurationElement elem = config.AppSettings.Settings[key];
-            if (elem == null)
-                config.AppSettings.Settings.Add(key, value);
-            else
-               elem.Value = value;
-        }
-
-        public void save()
-        {
-            config.Save();
         }
     }
 }

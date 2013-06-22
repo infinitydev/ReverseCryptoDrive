@@ -66,6 +66,7 @@
       <HintPath>..\lib\Delimon.Win32.IO.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web" />
@@ -76,16 +77,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlockBasedRandomAccessFile.cs" />
     <Compile Include="BlockCrypto.cs" />
     <Compile Include="BlockLock.cs" />
     <Compile Include="ByteBuffer.cs" />
+    <Compile Include="CryptoConfiguration.cs" />
     <Compile Include="CryptoConstants.cs" />
     <Compile Include="PathTranslator.cs" />
     <Compile Include="RandomAccessEncryptedFile.cs" />
     <Compile Include="CryptViewOperations.cs" />
     <Compile Include="PassthroughOperations.cs" />
-    <Compile Include="RandomAccessFile.cs" />
     <Compile Include="Win32Api.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

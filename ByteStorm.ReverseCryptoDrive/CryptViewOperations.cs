@@ -63,6 +63,7 @@ namespace ByteStorm.PassthroughDrive
         private readonly AesCryptoServiceProvider cbcCryptoProvider;
         private readonly AesCryptoServiceProvider cfbCryptoProvider;
         private readonly PathTranslator pathTrans;
+        private bool isShutdown;
 
         public CryptViewOperations(string mountPath, string dbpath, byte[] key, byte[] iv)
         {
@@ -491,7 +492,13 @@ namespace ByteStorm.PassthroughDrive
 
         public void shutdown()
         {
-            pathTrans.commit();
+            if (isShutdown) return;
+            isShutdown = true;
+            if (pathTrans != null)
+            {
+                pathTrans.commit();
+                pathTrans.close();
+            }
         }
 
         public static bool IsContainerNameValid(string containerName)

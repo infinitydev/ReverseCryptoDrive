@@ -16,7 +16,7 @@ namespace ByteStorm.PassthroughDrive
     public class RandomAccessEncryptedFile
     {
         public readonly SafeFileHandle handle;
-        private BlockBasedRandomAccessFile braf;
+       // private BlockBasedRandomAccessFile braf;
         //private BlockLock[] blockLocks = new BlockLock[CryptoConstants.NUM_LOCKS];
         //private BlockCrypto crypto;
         //private long lastBlockOffset;
@@ -42,7 +42,7 @@ namespace ByteStorm.PassthroughDrive
         public RandomAccessEncryptedFile(SafeFileHandle handle, long offset, long length, AesCryptoServiceProvider cbcCryptoProvider, AesCryptoServiceProvider cfbCryptoProvider)
         {
             this.handle = handle;
-            this.braf = new BlockBasedRandomAccessFile(new RandomAccessFile(handle));
+            //this.braf = new BlockBasedRandomAccessFile(new RandomAccessFile(handle));
             this.cbcCryptoProvider = cbcCryptoProvider;
             this.cfbCryptoProvider = cfbCryptoProvider;
             this.bof = offset;

@@ -15,6 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteStorm.ReverseCryptoDriv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteStorm.ReverseCryptoDrive.WorkerRole", "ByteStorm.ReverseCryptoDrive.WorkerRole\ByteStorm.ReverseCryptoDrive.WorkerRole.csproj", "{8075EC64-87AD-4DE9-918B-3B85F1D7FC77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteStorm.ReverseCryptoDrive.Gui", "ByteStorm.ReverseCryptoDrive.Gui\ByteStorm.ReverseCryptoDrive.Gui.csproj", "{EB144F88-C5D6-47DE-AE29-E9A0B7D46DFE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A09B408A-26A0-4FF8-83D5-6E1B1DA5F63C} = {A09B408A-26A0-4FF8-83D5-6E1B1DA5F63C}
+		{57EE0EDA-ECB3-4F63-8318-D05C4BD99B16} = {57EE0EDA-ECB3-4F63-8318-D05C4BD99B16}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +73,16 @@ Global
 		{8075EC64-87AD-4DE9-918B-3B85F1D7FC77}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8075EC64-87AD-4DE9-918B-3B85F1D7FC77}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8075EC64-87AD-4DE9-918B-3B85F1D7FC77}.Release|x86.ActiveCfg = Release|Any CPU
+		{EB144F88-C5D6-47DE-AE29-E9A0B7D46DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB144F88-C5D6-47DE-AE29-E9A0B7D46DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB144F88-C5D6-47DE-AE29-E9A0B7D46DFE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{EB144F88-C5D6-47DE-AE29-E9A0B7D46DFE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{EB144F88-C5D6-47DE-AE29-E9A0B7D46DFE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EB144F88-C5D6-47DE-AE29-E9A0B7D46DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB144F88-C5D6-47DE-AE29-E9A0B7D46DFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB144F88-C5D6-47DE-AE29-E9A0B7D46DFE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{EB144F88-C5D6-47DE-AE29-E9A0B7D46DFE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{EB144F88-C5D6-47DE-AE29-E9A0B7D46DFE}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

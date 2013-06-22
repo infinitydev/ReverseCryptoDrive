@@ -15,6 +15,7 @@ namespace ByteStorm.PassthroughDrive
         private static readonly int ID_MAX_LENGTH = 15;
         private static readonly string ID_PREFIX = "i";
         private static readonly string NAME_PREFIX = "n";
+        private bool isDisposed;
 
         public PathTranslator(string dbpath)
         {
@@ -61,7 +62,14 @@ namespace ByteStorm.PassthroughDrive
 
         public void commit()
         {
-            tree.Commit();
+            if (!isDisposed)
+                tree.Commit();
+        }
+
+        public void close()
+        {
+            isDisposed = true;
+            tree.Dispose();
         }
 
         protected void setIdNameMapping(string id, string name)
