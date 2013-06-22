@@ -258,7 +258,7 @@ namespace ByteStorm.PassthroughDrive
                     }
                 }
             }
-            catch (System.IO.DirectoryNotFoundException e)
+            catch (System.IO.DirectoryNotFoundException)
             {
                 Console.WriteLine("Directory {0} could not be accessed!", di.FullName);
                 return -ERROR_PATH_NOT_FOUND;
