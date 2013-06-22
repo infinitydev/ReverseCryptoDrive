@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ByteStorm.PassthroughDrive.Console.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DriveLetter" Type="System.String" Scope="User">
+      <Value Profile="(Default)">R</Value>
+    </Setting>
+    <Setting Name="key" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="iv" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="VolumeLabel" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ByteStormDrive</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
