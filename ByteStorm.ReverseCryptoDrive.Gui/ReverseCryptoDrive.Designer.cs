@@ -41,7 +41,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBrowse = new System.Windows.Forms.Button();
             this.textBoxMountPath = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.driveLetterBox = new System.Windows.Forms.ComboBox();
@@ -52,6 +52,7 @@
             this.chkForce = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lookupNamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.tnaMenu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -144,7 +145,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnBrowse, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxMountPath, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.driveLetterBox, 1, 1);
@@ -165,14 +166,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mounted Directory";
             // 
-            // button1
+            // btnBrowse
             // 
-            this.button1.Location = new System.Drawing.Point(390, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(59, 20);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Browse";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBrowse.Location = new System.Drawing.Point(390, 3);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(59, 20);
+            this.btnBrowse.TabIndex = 2;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // textBoxMountPath
             // 
@@ -349,7 +351,7 @@
         public System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.TextBox textBoxMountPath;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox driveLetterBox;
@@ -363,6 +365,7 @@
         private System.Windows.Forms.TextBox textBoxLogging;
         private System.Windows.Forms.CheckBox chkForce;
         private System.Windows.Forms.ToolStripMenuItem lookupNamesToolStripMenuItem;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
 

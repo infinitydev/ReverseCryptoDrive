@@ -361,5 +361,15 @@ namespace ByteStorm.ReverseCryptoDrive.Gui
             openLookupGui();
         }
 
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog1.Description = "Select path to mount";
+            folderBrowserDialog1.SelectedPath = textBoxMountPath.Text;
+            folderBrowserDialog1.ShowNewFolderButton = true;
+            DialogResult result = folderBrowserDialog1.ShowDialog(this);
+            if (result == DialogResult.OK)
+                textBoxMountPath.Text = folderBrowserDialog1.SelectedPath;
+        }
+
     }
 }
