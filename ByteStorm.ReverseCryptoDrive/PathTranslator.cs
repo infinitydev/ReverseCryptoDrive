@@ -36,6 +36,10 @@ namespace ByteStorm.PassthroughDrive
             if (id != null)
                 return id;
 
+            // if no rng was supplied, we cannot generate an id
+            if (rng == null)
+                return null;
+
             // no id stored for name => generate one and store id<=>name association
             id = getUniqueId(rng);
             setIdNameMapping(id, name);

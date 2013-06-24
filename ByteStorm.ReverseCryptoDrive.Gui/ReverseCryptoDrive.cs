@@ -17,9 +17,12 @@ namespace ByteStorm.ReverseCryptoDrive.Gui
     public partial class ReverseCryptoDrive : Form
     {
         private bool isMounted = false;
+        private CryptViewOperations cwo;
+        private Lookup lookupForm;
         public ReverseCryptoDrive()
         {
             InitializeComponent();
+            updateButtonStates();
             LoadSettings();
         }
 
@@ -84,7 +87,7 @@ namespace ByteStorm.ReverseCryptoDrive.Gui
                 {
                     string mountPath = loadMountPath();
                     Console.WriteLine("Mounting " + mountPath + " as drive " + opt.MountPoint + ":");
-                    CryptViewOperations cwo = new CryptViewOperations(mountPath, dbpath, key, iv);
+                    cwo = new CryptViewOperations(mountPath, dbpath, key, iv);
 
                     Invoke((Action)delegate { Mounted(); });
                     int status = DokanNet.DokanMain(opt, cwo);
@@ -249,6 +252,12 @@ namespace ByteStorm.ReverseCryptoDrive.Gui
             buttonUnmount.Enabled = chkForce.Checked || isMounted;
             mountToolStripMenuItem.Enabled = !isMounted;
             unmountToolStripMenuItem.Enabled = chkForce.Checked || isMounted;
+            lookupNamesToolStripMenuItem.Enabled = canOpenLookupForm();
+        }
+
+        private bool canOpenLookupForm()
+        {
+            return isMounted && cwo != null;
         }
 
         private void Unmount()
@@ -257,6 +266,8 @@ namespace ByteStorm.ReverseCryptoDrive.Gui
                 MessageBox.Show("Drive is not mounted");
             else
             {
+                if (lookupForm != null)
+                    lookupForm.Close();
                 Thread unmountThread = new Thread(this.AsyncUnmount);
                 unmountThread.Start();
             }
@@ -265,6 +276,7 @@ namespace ByteStorm.ReverseCryptoDrive.Gui
         private void Unmounted()
         {
             isMounted = false;
+            cwo = null;
             toolStripStatus.Text = "not mounted";
             updateButtonStates();
         }
@@ -328,6 +340,25 @@ namespace ByteStorm.ReverseCryptoDrive.Gui
         {
             this.Show();
             this.WindowState = FormWindowState.Normal;
+        }
+
+        private void lookupNamesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openLookupGui();
+        }
+
+        private void openLookupGui()
+        {
+            if (canOpenLookupForm())
+            {
+                lookupForm = new Lookup(cwo);
+                lookupForm.ShowDialog();
+            }
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            openLookupGui();
         }
 
     }

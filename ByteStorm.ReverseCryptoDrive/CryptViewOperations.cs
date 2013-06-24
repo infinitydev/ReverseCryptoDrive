@@ -519,7 +519,7 @@ namespace ByteStorm.PassthroughDrive
         private static readonly string separatorStr = new string(System.IO.Path.DirectorySeparatorChar, 1);
         private static readonly char[] separatorChr = new char[] { System.IO.Path.DirectorySeparatorChar };
 
-        private string translateToPathOfIds(string plaintextPath, Random rng)
+        public string translateToPathOfIds(string plaintextPath, Random rng)
         {
             bool startsWithBackslash = plaintextPath.StartsWith(separatorStr);
             bool endsWithBackslash = plaintextPath.EndsWith(separatorStr);
@@ -535,7 +535,7 @@ namespace ByteStorm.PassthroughDrive
             return buildPath(pathSegments, startsWithBackslash, endsWithBackslash);
         }
 
-        private string translateToPathOfNames(string ciphertextPath)
+        public string translateToPathOfNames(string ciphertextPath)
         {
             bool startsWithBackslash = ciphertextPath.StartsWith(separatorStr);
             bool endsWithBackslash = ciphertextPath.Length > 2 && ciphertextPath.EndsWith(separatorStr);

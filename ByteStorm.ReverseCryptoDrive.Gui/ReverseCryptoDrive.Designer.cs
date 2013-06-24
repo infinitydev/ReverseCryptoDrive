@@ -38,7 +38,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,11 +50,13 @@
             this.buttonUnmount = new System.Windows.Forms.Button();
             this.textBoxLogging = new System.Windows.Forms.TextBox();
             this.chkForce = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lookupNamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tnaMenu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -71,15 +72,16 @@
             this.tnaMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mountToolStripMenuItem,
             this.unmountToolStripMenuItem,
+            this.lookupNamesToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.tnaMenu.Name = "tnaMenu";
-            this.tnaMenu.Size = new System.Drawing.Size(126, 70);
+            this.tnaMenu.Size = new System.Drawing.Size(155, 92);
             this.tnaMenu.Text = "Actions";
             // 
             // mountToolStripMenuItem
             // 
             this.mountToolStripMenuItem.Name = "mountToolStripMenuItem";
-            this.mountToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mountToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.mountToolStripMenuItem.Text = "&Mount";
             this.mountToolStripMenuItem.Click += new System.EventHandler(this.mountToolStripMenuItem_Click);
             // 
@@ -87,14 +89,14 @@
             // 
             this.unmountToolStripMenuItem.Enabled = false;
             this.unmountToolStripMenuItem.Name = "unmountToolStripMenuItem";
-            this.unmountToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unmountToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.unmountToolStripMenuItem.Text = "&Unmount";
             this.unmountToolStripMenuItem.Click += new System.EventHandler(this.unmountToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -120,15 +122,6 @@
             this.toolStripStatus.Name = "toolStripStatus";
             this.toolStripStatus.Size = new System.Drawing.Size(26, 17);
             this.toolStripStatus.Text = "Idle";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ByteStorm.ReverseCryptoDrive.Gui.Properties.Resources.Crypto;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // groupBox1
             // 
@@ -297,6 +290,23 @@
             this.chkForce.UseVisualStyleBackColor = true;
             this.chkForce.CheckedChanged += new System.EventHandler(this.chkForce_CheckedChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ByteStorm.ReverseCryptoDrive.Gui.Properties.Resources.Crypto;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
+            // 
+            // lookupNamesToolStripMenuItem
+            // 
+            this.lookupNamesToolStripMenuItem.Name = "lookupNamesToolStripMenuItem";
+            this.lookupNamesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.lookupNamesToolStripMenuItem.Text = "Lookup Names";
+            this.lookupNamesToolStripMenuItem.Click += new System.EventHandler(this.lookupNamesToolStripMenuItem_Click);
+            // 
             // ReverseCryptoDrive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,10 +330,10 @@
             this.tnaMenu.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,6 +362,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.TextBox textBoxLogging;
         private System.Windows.Forms.CheckBox chkForce;
+        private System.Windows.Forms.ToolStripMenuItem lookupNamesToolStripMenuItem;
     }
 }
 
